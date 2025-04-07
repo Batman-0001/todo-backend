@@ -18,8 +18,8 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../new.html"));
 });
 
-app.post("/signup", signup);
-app.post("/login", login);
+app.post("/todo/signup", signup);
+app.post("/todo/login", login);
 
 app.use("/api", protect, router);
 

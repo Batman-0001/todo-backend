@@ -34,7 +34,7 @@ model Task {
   createdAt DateTime @default(now())
   scheduleDate DateTime?
   status TASK_STATUS @default(TO_DO)
-  belongsTo User @relation(fields: [belongsToId], references: [id])
+  belongsTo User @relation(fields: [belongsToId], references: [id], onDelete: Cascade)
   belongsToId String
   @@unique([id, belongsToId])
 }

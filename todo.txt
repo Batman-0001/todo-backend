@@ -1,0 +1,2 @@
+1. make a refresh token system like for using of {expiresIN: "1h"};
+2.add a resetpassword/forgotpassword functionality
