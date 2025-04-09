@@ -2,7 +2,14 @@ import { Router } from "express";
 import { body } from "express-validator";
 import inputErrorHandler from "./handlers/inputErrorHandler";
 import { deleteUser, getUser, updateUser } from "./handlers/user";
-import { createTask, deleteTask, getTasks, updateTask } from "./handlers/task";
+import {
+  createTask,
+  deleteTask,
+  getTasks,
+  getTasksByDate,
+  getTasksByStatus,
+  updateTask,
+} from "./handlers/task";
 
 const router = Router();
 
@@ -18,12 +25,13 @@ router.delete("/profile", deleteUser);
 
 //for tasks
 router.get("/task", getTasks);
-router.get("/task/:status", () => {}); //to filter tasks by their status
+router.get("/task/:date", getTasksByDate);
+router.get("/task/:status", getTasksByStatus); //to filter tasks by their status
 router.post(
   "/task",
   body("title").trim().notEmpty().isString(),
   body("description").optional().isString(),
-  body("scheduledDate").optional().isISO8601().toDate(),
+  body("scheduleDate").optional().isISO8601().toDate(),
   inputErrorHandler,
   createTask
 );
