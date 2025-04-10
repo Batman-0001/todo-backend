@@ -8,6 +8,7 @@ import {
   getTasks,
   getTasksByDate,
   getTasksByStatus,
+  getTasksForARange,
   updateTask,
 } from "./handlers/task";
 
@@ -24,8 +25,9 @@ router.put(
 router.delete("/profile", deleteUser);
 
 //for tasks
-router.get("/task", getTasks);
+router.get("/tasks", getTasks);
 router.get("/task/:date", getTasksByDate);
+router.get("/task", getTasksForARange);
 router.get("/task/:status", getTasksByStatus); //to filter tasks by their status
 router.post(
   "/task",
