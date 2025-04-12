@@ -41,8 +41,8 @@ router.put(
   "/task/:id",
   body("title").optional().trim().notEmpty().isString(),
   body("description").optional().isString(),
-  body("scheduledDate").optional().isISO8601().toDate(),
-  body("status").isIn(["TO_DO", "IN_PROGRESS", "COMPLETED"]),
+  body("scheduleDate").optional().isISO8601().toDate(),
+  body("status").optional().isIn(["TO_DO", "IN_PROGRESS", "COMPLETED"]),
   inputErrorHandler,
   updateTask
 );
